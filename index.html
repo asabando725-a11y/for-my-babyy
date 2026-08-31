@@ -1,0 +1,724 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Love ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+            color: #5a2942;
+            text-align: center;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* CARD */
+        .card {
+            background: white;
+            padding: 30px 20px;
+            margin: 20px 0;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        /* HEART */
+        .heart {
+            font-size: 65px;
+            animation: heartbeat 1.2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #e75480;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #e75480;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* BUTTON */
+        button {
+            border: none;
+            background: #e75480;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d94370;
+            transform: scale(1.05);
+        }
+
+        /* PHOTO GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+        }
+
+        /* LOVE LETTER */
+        .letter {
+            background: #fff0f5;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        /* =========================
+           SURPRISE
+        ========================= */
+
+        #surprise {
+            display: none;
+            margin-top: 20px;
+            background: #ffe1ec;
+            padding: 20px;
+            border-radius: 20px;
+            animation: appear 0.8s ease;
+            overflow: hidden;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* FLOWER AREA */
+
+        .flower-container {
+            position: relative;
+            width: 220px;
+            height: 330px;
+            margin: 10px auto;
+        }
+
+        /* STEM */
+
+        .stem {
+            position: absolute;
+            width: 10px;
+            height: 180px;
+            background: linear-gradient(to right, #2e8b57, #55b86a);
+            left: 105px;
+            top: 115px;
+            border-radius: 10px;
+
+            transform-origin: bottom;
+            animation: growStem 2s ease-out forwards;
+        }
+
+        @keyframes growStem {
+            0% {
+                height: 0;
+            }
+
+            100% {
+                height: 180px;
+            }
+        }
+
+        /* FLOWER */
+
+        .flower {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            left: 45px;
+            top: 20px;
+
+            transform: scale(0);
+            animation:
+                bloom 2s ease-out forwards,
+                flowerSway 3s ease-in-out 2s infinite;
+            transform-origin: bottom center;
+            z-index: 3;
+        }
+
+        @keyframes bloom {
+
+            0% {
+                transform: scale(0) rotate(-20deg);
+            }
+
+            60% {
+                transform: scale(1.2) rotate(8deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        @keyframes flowerSway {
+
+            0% {
+                transform: rotate(-3deg);
+            }
+
+            50% {
+                transform: rotate(3deg);
+            }
+
+            100% {
+                transform: rotate(-3deg);
+            }
+        }
+
+        /* PETALS */
+
+        .petal {
+            position: absolute;
+            width: 58px;
+            height: 78px;
+            background: linear-gradient(135deg, #ff4f81, #ff8fab);
+            border-radius: 50%;
+            left: 36px;
+            top: 25px;
+
+            transform-origin: center bottom;
+
+            box-shadow: 0 4px 8px rgba(200, 60, 100, 0.2);
+        }
+
+        .petal1 {
+            transform: rotate(0deg) translateY(-25px);
+        }
+
+        .petal2 {
+            transform: rotate(60deg) translateY(-25px);
+        }
+
+        .petal3 {
+            transform: rotate(120deg) translateY(-25px);
+        }
+
+        .petal4 {
+            transform: rotate(180deg) translateY(-25px);
+        }
+
+        .petal5 {
+            transform: rotate(240deg) translateY(-25px);
+        }
+
+        .petal6 {
+            transform: rotate(300deg) translateY(-25px);
+        }
+
+        /* FLOWER CENTER */
+
+        .flower-center {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            background: #ffd54f;
+            border-radius: 50%;
+
+            left: 41px;
+            top: 41px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 22px;
+            z-index: 5;
+
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+
+        /* LEAVES */
+
+        .leaf {
+            position: absolute;
+            width: 75px;
+            height: 38px;
+            background: linear-gradient(135deg, #4caf50, #81c784);
+            border-radius: 100% 0 100% 0;
+            z-index: 2;
+        }
+
+        .leaf-left {
+            left: 40px;
+            top: 205px;
+
+            transform: rotate(-30deg) scale(0);
+            animation: leafLeft 1.5s ease-out 1s forwards;
+        }
+
+        .leaf-right {
+            right: 35px;
+            top: 160px;
+
+            transform: rotate(30deg) scaleX(-1) scale(0);
+            animation: leafRight 1.5s ease-out 1.3s forwards;
+        }
+
+        @keyframes leafLeft {
+
+            0% {
+                transform: rotate(-30deg) scale(0);
+            }
+
+            100% {
+                transform: rotate(-30deg) scale(1);
+            }
+        }
+
+        @keyframes leafRight {
+
+            0% {
+                transform: rotate(30deg) scaleX(-1) scale(0);
+            }
+
+            100% {
+                transform: rotate(30deg) scaleX(-1) scale(1);
+            }
+        }
+
+        /* GROUND */
+
+        .ground {
+            position: absolute;
+            width: 130px;
+            height: 18px;
+            background: #8bc34a;
+            border-radius: 50%;
+
+            left: 45px;
+            bottom: 20px;
+
+            animation: groundAppear 1s ease-out;
+        }
+
+        @keyframes groundAppear {
+
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* FALLING PETALS */
+
+        .falling-petal {
+            position: absolute;
+            top: -20px;
+            font-size: 20px;
+            animation: fall 4s linear forwards;
+            z-index: 10;
+        }
+
+        @keyframes fall {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(330px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* REASONS */
+
+        .reason {
+            background: #fff5f8;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* SMALL PHONE */
+
+        @media (max-width: 400px) {
+
+            .container {
+                padding: 12px;
+            }
+
+            .card {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .heart {
+                font-size: 55px;
+            }
+
+            .gallery img {
+                height: 140px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .flower-container {
+                transform: scale(0.9);
+                margin-top: -10px;
+                margin-bottom: -20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- INTRODUCTION -->
+
+    <div class="card">
+
+        <div class="heart">❤️</div>
+
+        <h1>For My Love</h1>
+
+        <p>
+            Hi baby! 🥺💕
+        </p>
+
+        <p>
+            I made this little website just for you.
+            It's simple, but I hope it makes you smile. ❤️
+        </p>
+
+        <p>
+            Scroll down, there's a surprise waiting for you... 👀
+        </p>
+
+    </div>
+
+
+    <!-- LOVE LETTER -->
+
+    <div class="card">
+
+        <h2>💌 A Little Letter For You</h2>
+
+        <div class="letter">
+
+            <p>
+                My Love,
+            </p>
+
+            <p>
+                I just want to say thank you for being part
+                of my life. You make ordinary days feel
+                special just by being there.
+            </p>
+
+            <p>
+                I may not always say it perfectly,
+                but I hope you know how much you mean to me.
+            </p>
+
+            <p>
+                I will always appreciate the memories,
+                the laughs, the random conversations,
+                and even the little arguments. 🥺
+            </p>
+
+            <p>
+                I love you so much. ❤️
+            </p>
+
+            <p>
+                — Your Baby 💕
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO GALLERY -->
+
+    <div class="card">
+
+        <h2>📸 Our Memories</h2>
+
+        <p>
+            Some of my favorite memories with you. ❤️
+        </p>
+
+        <div class="gallery">
+
+            <img src="1.jpg" alt="Our Memory">
+            <img src="2.jpg" alt="Our Memory">
+            <img src="3.jpg" alt="Our Memory">
+            <img src="4.jpg" alt="Our Memory">
+            <img src="5.jpg" alt="Our Memory">
+            <img src="6.jpg" alt="Our Memory">
+
+        </div>
+
+    </div>
+
+
+    <!-- WHY I LOVE YOU -->
+
+    <div class="card">
+
+        <h2>💗 Why I Love You</h2>
+
+        <div class="reason">
+            🥰 Your smile makes my day better.
+        </div>
+
+        <div class="reason">
+            ❤️ You make me feel loved.
+        </div>
+
+        <div class="reason">
+            😂 You always make me laugh.
+        </div>
+
+        <div class="reason">
+            🫶 You stay beside me.
+        </div>
+
+        <div class="reason">
+            💕 You are simply you.
+        </div>
+
+    </div>
+
+
+    <!-- SURPRISE -->
+
+    <div class="card">
+
+        <h2>🎁 There's Something Here...</h2>
+
+        <p>
+            Baby, are you ready?
+        </p>
+
+        <button onclick="showSurprise()">
+            Open My Surprise 💝
+        </button>
+
+
+        <div id="surprise">
+
+            <!-- MOVING FLOWER -->
+
+            <div class="flower-container">
+
+                <div class="flower">
+
+                    <div class="petal petal1"></div>
+                    <div class="petal petal2"></div>
+                    <div class="petal petal3"></div>
+                    <div class="petal petal4"></div>
+                    <div class="petal petal5"></div>
+                    <div class="petal petal6"></div>
+
+                    <div class="flower-center">
+                        ❤️
+                    </div>
+
+                </div>
+
+
+                <div class="stem"></div>
+
+                <div class="leaf leaf-left"></div>
+
+                <div class="leaf leaf-right"></div>
+
+                <div class="ground"></div>
+
+            </div>
+
+
+            <h2>
+                Surprise! 🥺❤️
+            </h2>
+
+            <p>
+                If you're reading this...
+            </p>
+
+            <p>
+                I just want to remind you that
+                you are loved, appreciated, and very special
+                to me. 💕
+            </p>
+
+            <p>
+                Just like this flower blooms,
+                my love for you keeps growing every day. 🌹
+            </p>
+
+            <p>
+                And here's your virtual kiss:
+            </p>
+
+            <div style="font-size:50px;">
+                😘💋
+            </div>
+
+            <p>
+                <b>I LOVE YOU SO MUCH! ❤️</b>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL MESSAGE -->
+
+    <div class="card">
+
+        <div class="heart">
+            💖
+        </div>
+
+        <h2>Forever & Always</h2>
+
+        <p>
+            Wherever life takes us,
+            I hope we continue making
+            beautiful memories together.
+        </p>
+
+        <p>
+            Thank you for being my favorite person. 🥺❤️
+        </p>
+
+        <h2>
+            I Love You! 💕
+        </h2>
+
+    </div>
+
+</div>
+
+
+<footer>
+    Made with ❤️ especially for you.
+</footer>
+
+
+<script>
+
+    function showSurprise() {
+
+        const surprise = document.getElementById("surprise");
+
+        surprise.style.display = "block";
+
+        /* Create falling flower petals */
+
+        for (let i = 0; i < 15; i++) {
+
+            const petal = document.createElement("div");
+
+            petal.className = "falling-petal";
+
+            petal.innerHTML = "🌸";
+
+            petal.style.left =
+                Math.random() * 100 + "%";
+
+            petal.style.animationDelay =
+                Math.random() * 2 + "s";
+
+            petal.style.fontSize =
+                (Math.random() * 10 + 15) + "px";
+
+            surprise.appendChild(petal);
+
+            setTimeout(function() {
+                petal.remove();
+            }, 6000);
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
+```
